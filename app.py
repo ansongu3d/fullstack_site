@@ -5,7 +5,7 @@ from flask import Flask
 
 # get DATABASE_URL value from environment,
 # if the value is NOT found, then use 'dbname=food_truck'
-DATABASE_URL = os.environ.get('HEROKU_POSTGRESQL_CYAN_URL', 'dbname=food_truck')
+DATABASE_URL = os.environ.get('DATABASE_URL', 'dbname=foodtruck')
 
 # get SECRET_KEY value from environment,
 # if the value is NOT found, then use 'bambi-thumper-example'
