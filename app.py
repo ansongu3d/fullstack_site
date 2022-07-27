@@ -1,11 +1,12 @@
 import os
 import psycopg2
-from flask import Flask
+import bcrypt
+from flask import Flask, request, redirect, render_template, session
 
 
 # get DATABASE_URL value from environment,
 # if the value is NOT found, then use 'dbname=food_truck'
-DATABASE_URL = os.environ.get('DATABASE_URL', 'dbname=foodtruck')
+DATABASE_URL = os.environ.get('DATABASE_URL', 'dbname=transformer_store')
 
 # get SECRET_KEY value from environment,
 # if the value is NOT found, then use 'bambi-thumper-example'
@@ -22,11 +23,37 @@ app.secret_key = SECRET_KEY.encode()
 
 @app.route('/')
 def index():
-    connection = psycopg2.connect(DATABASE_URL)
-    cursor = connection.cursor()
-    cursor.execute("SELECT 1")
-    connection.close()
-    return '<h1>hello, world</h1>'
+    # connection = psycopg2.connect(DATABASE_URL)
+    # cursor = connection.cursor()
+    # cursor.execute("""
+    #     SELECT id, name, image_url1, image_url2, price
+    #     FROM toy
+    #     LIMIT 100
+    # """)
+    # result = cursor.fetchall()
+    
+    # toy_collection = result
+
+    # # using the cookie given to us by the browser
+    # # look up username in our DB
+    # user_id_from_encrypted_cookie = session.get("user_id")
+    # if user_id_from_encrypted_cookie:
+    #     cursor.execute("""
+    #         SELECT username
+    #         FROM users
+    #         WHERE id = %s
+    #         LIMIT 1
+    #     """, (user_id_from_encrypted_cookie,))
+    #     result = cursor.fetchone()
+    # else:
+    #     result = None
+    # if result:
+    #     username = result
+    # else:
+    #     username = None
+
+    return render_template("index.html")
+    
 
 if __name__ == "__main__":
     app.run(debug=True)
