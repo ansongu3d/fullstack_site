@@ -5,13 +5,13 @@
     <link rel="stylesheet" href="/static/styles.css" />
   </head>
   <body>
-    <header><h1>Transformer Collection Store</h1></header>
+    <header><h1>Transformer Collection Store</h1>
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
         >&times;</a
       >
       <a href="#">About</a>
-      <a href="#">Collection</a>
+      <a href="/templates/collection.html">Collection</a>
       <a href="#">Cart</a>
       <a href="#">Contact</a>
     </div>
@@ -19,8 +19,9 @@
     <div id="main">
       <span class="menu" cursor: pointer" onclick="openNav()"
         >&#9776;</span
-      >
-      
+      ></header>
+      {% block content %}
+      {% endblock %}
     </div>
 
     <script>
@@ -38,7 +39,6 @@
         document.body.style.backgroundColor = "black";
       }
     </script>
-    {% block main %} going to be replaced {% endblock %}
     <footer>copyright</footer>
   </body>
 </html>

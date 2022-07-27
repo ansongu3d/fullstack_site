@@ -6,7 +6,8 @@
 #hero_pic01 {
   max-width: var(--bp-medium);
   text-align: center;
-  display: block;
+  display: flex;
+  flex: 1;
   margin: auto;
 }
 

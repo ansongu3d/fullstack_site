@@ -2,15 +2,5 @@
 
 <section>
   <img id="hero_pic01" src="/static/assets/hero_pic.png" />
-  <ul>
-    {% for id, name, image_url, price in toy %}
-    <!-- display each food item-->
-    <li class="test" style="margin-bottom: 20px">
-      {{ name }}
-      <img height="170" src="{{ image_url }}" alt="{{ name }}" />
-      {{ price_cents }}
-    </li>
-    {% endfor %}
-  </ul>
 </section>
 {% endblock %}
