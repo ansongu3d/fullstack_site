@@ -25,6 +25,12 @@ app.secret_key = SECRET_KEY.encode()
 def index():
     return render_template("index.html")
 
+@app.route('/cart', methods=['post'])
+def cart():
+    name = request.form.get('name')
+    print(name)
+    return render_template("cart.html")
+
 
 @app.route('/collection')
 def collection():

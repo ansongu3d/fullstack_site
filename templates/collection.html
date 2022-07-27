@@ -1,14 +1,17 @@
 {% extends "base.html" %} {% block content %}
 
 <section>
-  <p>Hello world</p>
   <ul>
     {% for id, name, image_url_1,image_url_2, qty, price in toy %}
     <!-- display each food item-->
     <li style="margin-bottom: 20px">
-      {{ name }}
-      <img height="170" src="{{ image_url_1 }}" alt="{{ name }}" />
-      {{ price }}
+      <img height="200" src="{{ image_url_1 }}" alt="{{ name }}" />
+      <span>{{ name }}</span>
+      <span>${{ price }}</span>
+      <form method="POST" action="/cart">
+        <input type="hidden" name="name" />
+        <button class="add_cart">cart</button>
+      </form>
     </li>
     {% endfor %}
   </ul>

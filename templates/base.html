@@ -7,11 +7,9 @@
   <body>
     <header><h1>Transformer Collection Store</h1>
     <div id="mySidenav" class="sidenav">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
-        >&times;</a
-      >
-      <a href="#">About</a>
-      <a href="/templates/collection.html">Collection</a>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="{{ url_for('index')}}">About</a>
+      <a href="{{ url_for('collection')}}">Collection</a>
       <a href="#">Cart</a>
       <a href="#">Contact</a>
     </div>
@@ -19,23 +17,24 @@
     <div id="main">
       <span class="menu" cursor: pointer" onclick="openNav()"
         >&#9776;</span
-      ></header>
+      ></header></div>
+
       {% block content %}
       {% endblock %}
-    </div>
+    
 
     <script>
       function openNav() {
         document.getElementById("mySidenav").style.width = "250px";
         document.getElementById("main").style.marginLeft = "250px";
-        document.getElementById("hero_pic01").src = "/static/assets/hero_pic_02.png";
+        document.getElementById("hero__pic__01").src = "/static/assets/hero_pic_02.png";
         document.body.style.backgroundColor = "rgba(0,0,0,0.9)";
       }
 
       function closeNav() {
         document.getElementById("mySidenav").style.width = "0";
         document.getElementById("main").style.marginLeft = "0";
-        document.getElementById("hero_pic01").src = "/static/assets/hero_pic.png";
+        document.getElementById("hero__pic__01").src = "/static/assets/hero_pic.png";
         document.body.style.backgroundColor = "black";
       }
     </script>
