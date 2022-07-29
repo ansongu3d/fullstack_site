@@ -6,8 +6,9 @@
 section {
 }
 
-.hero__pic__01 {
-  max-width: var(--bp-medium);
+#hero__pic__01 {
+  max-width: var(--bp-m);
+  height: 77vh;
   text-align: center;
   display: block;
   margin: auto;

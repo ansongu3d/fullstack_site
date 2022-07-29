@@ -9,7 +9,7 @@
       <span>{{ name }}</span>
       <span>${{ price }}</span>
       <form method="POST" action="/cart">
-        <input type="hidden" name="name" />
+        <input type="hidden" name="name" value="{{ name }}" />
         <button class="add_cart">cart</button>
       </form>
     </li>
