@@ -26,7 +26,7 @@ def index():
     return render_template("index.html")
 
 @app.route('/cart', methods=['post'])
-def cart():
+def cart(): 
     name = request.form.get('name')
     print(name)
     return render_template("cart.html")

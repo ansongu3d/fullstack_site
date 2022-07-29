@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="/static/styles.css" />
   </head>
   <body>
-    <header><h1>Transformer Collection Store</h1>
+    <header>
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <a href="{{ url_for('index')}}">About</a>
@@ -14,10 +14,12 @@
       <a href="#">Contact</a>
     </div>
 
+
     <div id="main">
       <span class="menu" cursor: pointer" onclick="openNav()"
         >&#9776;</span
-      ></header></div>
+      >
+    </div><img class="logo" src="/static/assets/svg/tc_logo.svg" alt="logo"/></header>
 
       {% block content %}
       {% endblock %}

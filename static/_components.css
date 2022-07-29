@@ -7,15 +7,21 @@ section {
 }
 
 #hero__pic__01 {
-  max-width: var(--bp-m);
+  max-width: var(--bp-medium);
   height: 77vh;
   text-align: center;
   display: block;
   margin: auto;
 }
 
-h1 {
+.logo {
+  width: 100%;
+  max-width: var(--bp-small);
   text-align: center;
+  display: block;
+  margin: auto;
+  margin-top: -60px;
+  margin-bottom: 20px;
 }
 
 ul {
