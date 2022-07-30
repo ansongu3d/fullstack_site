@@ -6,7 +6,7 @@ from flask import Flask, request, redirect, render_template, session
 
 # get DATABASE_URL value from environment,
 # if the value is NOT found, then use 'dbname=food_truck'
-DATABASE_URL = os.environ.get('DATABASE_URL', 'dbname=transformer_store')
+DATABASE_URL = os.environ.get('DATABASE_URL', 'dbname=tc_store')
 
 # get SECRET_KEY value from environment,
 # if the value is NOT found, then use 'bambi-thumper-example'
@@ -24,12 +24,6 @@ app.secret_key = SECRET_KEY.encode()
 @app.route('/')
 def index():
     return render_template("index.html")
-
-@app.route('/cart', methods=['post'])
-def cart(): 
-    name = request.form.get('name')
-    print(name)
-    return render_template("cart.html")
 
 
 @app.route('/collection')
@@ -64,6 +58,21 @@ def collection():
         username = None
 
     return render_template("collection.html", toy=toy_collection, username=username)
+
+@app.route('/add_cart', methods=['post'])
+def add_cart(): 
+    name = request.form.get('name')
+    print(name)
+    return render_template("cart.html")
+
+@app.route('/cart')
+def cart():
+    return render_template("cart.html")
+
+
+@app.route('/contact')
+def contact():
+    return render_template("contact.html")
     
 
 if __name__ == "__main__":

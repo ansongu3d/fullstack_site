@@ -1,6 +1,54 @@
 {% extends "base.html" %} {% block content %}
-
 <section class="hero">
-  <img id="hero__pic__01" src="/static/assets/hero_pic.png" />
+  <div class="display-container" style="max-width: screen">
+    <img
+      id="hero__pic__01"
+      class="mySlides"
+      src="/static/assets/hero_pic.png"
+    />
+    <img
+      id="hero__pic__02"
+      class="mySlides"
+      src="https://media.giphy.com/media/xUPOqFyryjMgXDpqlW/giphy.gif"
+      width="100%"
+    />
+    <div class="arrow_container">
+      <div class="arrow_left" onclick="plusDivs(-1)">&#10094;</div>
+      <div class="arrow_right" onclick="plusDivs(1)">&#10095;</div>
+    </div>
+  </div>
+
+  <script>
+    let slideIndex = 1;
+    showDivs(slideIndex);
+
+    function plusDivs(n) {
+      showDivs((slideIndex += n));
+    }
+
+    function currentDiv(n) {
+      showDivs((slideIndex = n));
+    }
+
+    function showDivs(n) {
+      let i;
+      let x = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("demo");
+      if (n > x.length) {
+        slideIndex = 1;
+      }
+      if (n < 1) {
+        slideIndex = x.length;
+      }
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace("dot_white", "");
+      }
+      x[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += "dot_white";
+    }
+  </script>
 </section>
 {% endblock %}

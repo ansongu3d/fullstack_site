@@ -1,19 +1,32 @@
 {% extends "base.html" %} {% block content %}
-
+<style>
+  footer {
+    position: relative;
+  }
+</style>
 <section>
-  <ul>
+  <div class="gallery">
     {% for id, name, image_url_1,image_url_2, qty, price in toy %}
-    <!-- display each food item-->
-    <li style="margin-bottom: 20px">
-      <img height="200" src="{{ image_url_1 }}" alt="{{ name }}" />
-      <span>{{ name }}</span>
-      <span>${{ price }}</span>
-      <form method="POST" action="/cart">
+    <!-- display each item-->
+    <div class="content">
+      <img src="{{ image_url_1 }}" />
+      <h3>{{ name }}</h3>
+      <p>Lorem ipsum dolor sit amet.</p>
+      <h6>$ {{ price }}</h6>
+      <ul>
+        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+      </ul>
+
+      <form method="POST" action="/add_cart">
         <input type="hidden" name="name" value="{{ name }}" />
-        <button class="add_cart">cart</button>
+        <button class="add_cart">ADD TO CART</button>
       </form>
-    </li>
+    </div>
     {% endfor %}
-  </ul>
+  </div>
 </section>
 {% endblock %}
