@@ -1,6 +1,7 @@
 import os
 import psycopg2
 import bcrypt
+import encode
 from flask import Flask, request, redirect, render_template, session
 
 
@@ -77,6 +78,9 @@ def add_cart():
         cursor.execute('UPDATE cart SET quantity = %s WHERE  user_id=%s and toy_id=%s', [existingCartItem[0][0] + 1, user_id, toy_id])
 
     connection.commit()
+    
+    
+    
 
     return redirect(request.referrer)
 
@@ -88,6 +92,7 @@ def cart():
     cursor = connection.cursor()
     cursor.execute('SELECT toy.id, toy.name, quantity, image_url_1, price FROM cart, toy WHERE cart.user_id = %s AND cart.toy_id = toy.id', [user_id])
     cart = cursor.fetchall()
+    print(cart)
     return render_template("cart.html", cart=cart)
 
 
@@ -127,9 +132,10 @@ def process_login_form():
     # plumbing code for us to query DB
     connection = psycopg2.connect(DATABASE_URL)
     cursor = connection.cursor()
-
+    username = request.form.get("username")
+    password = request.form.get("password")
     # create our redirect to homepage response
-    response = redirect("/")
+    # response = redirect("/")
 
     # find user row in users table that matches the submitted username
     cursor.execute("""
@@ -137,19 +143,16 @@ def process_login_form():
         FROM users
         WHERE username = %s
         LIMIT 1
-    """, (request.form.get("username"),))
+    """, [username])
     user = cursor.fetchone()
     if not user:
-        return response
-
-    # verify that the password submitted by the user matches
-    # the one in our DB
-    encoded_password = request.form.get("password").encode()
-    user_id, hashed_password = user
-    if bcrypt.checkpw(encoded_password, hashed_password.encode()):
-        session["user_id"] = user_id
-
-    return response
+        return redirect('/login')
+    else:
+        if encode.check(password,user[1]):
+            session["user_id"] = user[0]
+            return redirect('/collection')
+        else:
+            return redirect('/login')
 
 @app.route("/logout")
 def logout():
@@ -159,7 +162,8 @@ def logout():
     session.pop("user_id", None)
 
     return redirect("/")
-    
+ 
+
 
 if __name__ == "__main__":
     app.run(debug=True)
