@@ -6,10 +6,12 @@
       <h3 class="Heading">Shopping Cart</h3>
       <h5 class="Action">Remove all</h5>
     </div>
-
+    <!-- {% for id, name, image_url_1,image_url_2, qty, price in toy %} -->
     <div class="Cart-Items">
       <div class="image-box">
-        <img src="{{ image_url_1 }}" />
+        <img
+          src="https://cdn.shopify.com/s/files/1/0048/5762/6691/products/apishtjk5__42570.1555523105_600x.jpg?v=1609214417"
+        />
       </div>
       <div class="about">
         <h1 class="title">Dark Leo Prime</h1>
@@ -21,32 +23,13 @@
         <div class="btn">-</div>
       </div>
       <div class="prices">
-        <div class="amount">$300</div>
+        <div class="amount">${{ price }}</div>
         <div class="save"><u>Save for later</u></div>
         <div class="remove"><u>Remove</u></div>
       </div>
     </div>
+    <!-- {% endfor %} -->
 
-    <div class="Cart-Items">
-      <div class="image-box">
-        <img src="{{ image_url_1 }}" />
-      </div>
-      <div class="about">
-        <h1 class="title">Bumblebee</h1>
-        <h3 class="subtitle">Lorem ipsum dolor</h3>
-      </div>
-      <div class="counter">
-        <div class="btn">+</div>
-        <div class="count">1</div>
-        <div class="btn">-</div>
-      </div>
-      <div class="prices">
-        <div class="amount">$45</div>
-        <div class="save"><u>Save for later</u></div>
-        <div class="remove"><u>Remove</u></div>
-      </div>
-    </div>
-    <hr />
     <div class="checkout">
       <div class="total">
         <div>
