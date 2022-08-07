@@ -5,12 +5,12 @@ body {
 
 .logo {
   width: 100%;
-  max-width: var(--bp-medium);
+  max-width: var(--bp-small);
   text-align: center;
   display: block;
   margin: auto;
-  margin-top: -77px;
-  margin-bottom: 20px;
+  margin-top: -7rem;
+  margin-bottom: 2.5rem;
 }
 
 .menu {

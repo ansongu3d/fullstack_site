@@ -1,3 +1,4 @@
+from crypt import methods
 import os
 import psycopg2
 import bcrypt
@@ -162,6 +163,23 @@ def logout():
     session.pop("user_id", None)
 
     return redirect("/")
+
+@app.route("/signup",methods=["GET"])
+def signup():
+    return render_template("signup.html")
+
+@app.route("/signup",methods=["POST"])
+def signup_action():
+    username = request.form.get("username")
+    password = request.form.get("password")
+    
+    connection = psycopg2.connect(DATABASE_URL)
+    cursor = connection.cursor()
+    
+    password=encode.hash(password)
+    cursor.execute("INSERT INTO users (username, password_hash, address) VALUES(%s,%s,'unit1')",[username, password])
+    connection.commit()
+    return redirect("/login")
  
 
 

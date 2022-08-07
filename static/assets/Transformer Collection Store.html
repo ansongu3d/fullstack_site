@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Transformer Collection Store</title>
+    <link href="Transformer%20Collection%20Store_files/css.css" rel="stylesheet">
+    <link rel="stylesheet" href="Transformer%20Collection%20Store_files/font-awesome.min.css">
+    <link rel="stylesheet" href="Transformer%20Collection%20Store_files/styles.css">
+  </head>
+  <body>
+    <header>
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a href="http://127.0.0.1:5000/">About</a>
+      <a href="http://127.0.0.1:5000/collection">Collection</a>
+      <a href="http://127.0.0.1:5000/cart">Cart</a>
+      <a href="http://127.0.0.1:5000/login">Login</a>
+      <a href="http://127.0.0.1:5000/contact">Contact</a>
+    </div>
+
+
+    <div id="main">
+      <span class="menu" cursor:="" pointer"="" onclick="openNav()">☰</span>
+    </div><a href="http://127.0.0.1:5000/"><img class="logo" src="Transformer%20Collection%20Store_files/tc_logo.svg" alt="logo"></a></header>
+
+      
+<section class="hero">
+  <div class="display-container" style="max-width: screen">
+    <img id="hero__pic__01" class="mySlides" src="Transformer%20Collection%20Store_files/hero_pic.png" style="display: block;">
+    <img id="hero__pic__02" class="mySlides" src="Transformer%20Collection%20Store_files/giphy.gif" style="display: none;" width="100%">
+    <div class="arrow_container">
+      <div class="arrow_left" onclick="plusDivs(-1)">❮</div>
+      <div class="arrow_right" onclick="plusDivs(1)">❯</div>
+    </div>
+  </div>
+
+  <script>
+    let slideIndex = 1;
+    showDivs(slideIndex);
+
+    function plusDivs(n) {
+      showDivs((slideIndex += n));
+    }
+
+    function currentDiv(n) {
+      showDivs((slideIndex = n));
+    }
+
+    function showDivs(n) {
+      let i;
+      let x = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("demo");
+      if (n > x.length) {
+        slideIndex = 1;
+      }
+      if (n < 1) {
+        slideIndex = x.length;
+      }
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace("dot_white", "");
+      }
+      x[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += "dot_white";
+    }
+  </script>
+</section>
+
+    
+
+    <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+        document.getElementById("hero__pic__01").src = "/static/assets/hero_pic_02.png";
+        document.getElementById("hero__pic__02").src = "https://media.giphy.com/media/xUPOqFyryjMgXDpqlW/giphy.gif";
+        document.body.style.backgroundColor = "rgba(0,0,0,0.9)";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+        document.getElementById("hero__pic__01").src = "/static/assets/hero_pic.png";
+        document.getElementById("hero__pic__02").src = "https://media.giphy.com/media/xUPOqFyryjMgXDpqlW/giphy.gif";
+        document.body.style.backgroundColor = "black";
+      }
+    </script>
+    <footer>© Copyright AG Dev 2022. ABN 000 000 00 08</footer>
+  
+</body></html>

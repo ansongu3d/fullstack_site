@@ -1,9 +1,10 @@
 /* about Page_Elements */
 #hero__pic__01 {
   max-width: var(--bp-medium);
-  height: 77vh;
+  width: 100%;
+  height: auto;
   text-align: center;
-  display: block;
+  display: inline-block;
   margin: auto;
 }
 
@@ -48,11 +49,11 @@
 }
 
 .arrow_left {
-  margin-left: 3rem;
+  margin-left: 7rem;
 }
 
 .arrow_right {
-  margin-right: 3rem;
+  margin-right: 7rem;
 }
 
 h3 {
@@ -178,6 +179,7 @@ a {
 }
 
 input[type="text"],
+input[type="password"],
 select,
 textarea {
   width: 100%;
@@ -190,7 +192,8 @@ textarea {
   resize: vertical;
 }
 
-input[type="submit"] {
+input[type="submit"],
+#login_btn {
   background-color: var(--color-primary);
   color: white;
   padding: 12px 20px;
@@ -203,15 +206,8 @@ input[type="submit"]:hover {
   background-color: var(--color-primary);
 }
 
-/* .container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-} */
-
 /* cart page */
 .CartContainer {
-  /* font-family: "Roboto", sans-serif; */
   margin: 5rem 15%;
   width: 69.9%;
   height: 90%;
@@ -255,6 +251,11 @@ input[type="submit"]:hover {
   width: 15%;
   text-align: center;
 }
+
+.item_image {
+  width: 70%;
+  padding: 1rem;
+}
 .about {
   height: 100%;
   width: 24%;
@@ -264,7 +265,7 @@ input[type="submit"]:hover {
 .title {
   padding-top: 10px;
   line-height: 10px;
-  font-size: 3.2em;
+  font-size: 3rem;
   font-weight: bold;
   color: var(--color-grey-dark-1);
 }
@@ -365,4 +366,15 @@ input[type="submit"]:hover {
   font-size: 16px;
   font-weight: 600;
   color: white;
+}
+
+/* login page */
+#login_form,
+#signup_form {
+  display: flex;
+  margin: 7rem 25%;
+  justify-content: center;
+  width: 50%;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
 }

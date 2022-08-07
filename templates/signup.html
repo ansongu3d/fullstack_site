@@ -1,0 +1,12 @@
+{% extends "base.html" %} {% block content %}
+<section id="signup_form">
+  <form action="/signup" method="post">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" />
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" />
+
+    <button>Sign up</button>
+  </form>
+</section>
+{% endblock %}
